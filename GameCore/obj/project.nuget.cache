@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "pKkljwcajFlxJp0mF11jny3Srn0B3cIcRgB+KYe+ykkt7FT+Sb7ImPLH3c9fYdkSI74EpA4jiSB0wGKYKdpDvg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Vladyslav\\OneDrive - Technicka univerzita v Kosiciach\\TUKE II Year\\C#\\GameCore\\GameCore\\GameCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Vladyslav\\.nuget\\packages\\merlincore\\2.5.5\\merlincore.2.5.5.nupkg.sha512",
+    "C:\\Users\\Vladyslav\\.nuget\\packages\\raylib-cs\\3.1.5\\raylib-cs.3.1.5.nupkg.sha512",
+    "C:\\Users\\Vladyslav\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\Vladyslav\\.nuget\\packages\\tiledsharp\\1.0.1\\tiledsharp.1.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://hades.cit.fei.tuke.sk:8080/v3/index.json'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}

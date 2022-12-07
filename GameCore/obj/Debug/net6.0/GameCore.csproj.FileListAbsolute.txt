@@ -1,0 +1,124 @@
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\GameCore.exe
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\GameCore.deps.json
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\GameCore.runtimeconfig.json
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\GameCore.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\GameCore.pdb
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.AssemblyReference.cache
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfoInputs.cache
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfo.cs
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CoreCompileInputs.cache
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\refint\GameCore.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.pdb
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.genruntimeconfig.cache
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\ref\GameCore.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\Merlin2d.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\Raylib-cs.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\TiledSharp.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x64\native\libraylib.so
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x86\native\libraylib.so
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\runtimes\osx-x64\native\libraylib.dylib
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x64\native\raylib.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x86\native\raylib.dll
+C:\Users\jmagy\source\repos\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CopyComplete
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\resources\maps\map01.tmx
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\resources\maps\tilesets\tileset_basic.png
+C:\Users\jmagy\source\repos\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\player.png
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\GameCore.exe
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\resources\maps\map01.tmx
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\resources\maps\tilesets\tileset_basic.png
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\player.png
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\GameCore.deps.json
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\GameCore.runtimeconfig.json
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\GameCore.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\GameCore.pdb
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\Merlin2d.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\Raylib-cs.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\TiledSharp.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x64\native\libraylib.so
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x86\native\libraylib.so
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\runtimes\osx-x64\native\libraylib.dylib
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x64\native\raylib.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x86\native\raylib.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.AssemblyReference.cache
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.GeneratedMSBuildEditorConfig.editorconfig
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfoInputs.cache
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfo.cs
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CoreCompileInputs.cache
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CopyComplete
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\refint\GameCore.dll
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.pdb
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\GameCore.genruntimeconfig.cache
+G:\My Drive\PhD\Teaching\2022-PVJC#\labs\GameCore\GameCore\obj\Debug\net6.0\ref\GameCore.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.AssemblyReference.cache
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfoInputs.cache
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfo.cs
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CoreCompileInputs.cache
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\refint\GameCore.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.pdb
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.exe
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\maps\map01.tmx
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\maps\tilesets\tileset_basic.png
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\player.png
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.deps.json
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.runtimeconfig.json
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.pdb
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\Merlin2d.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\Raylib-cs.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\TiledSharp.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x64\native\libraylib.so
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x86\native\libraylib.so
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\osx-x64\native\libraylib.dylib
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x64\native\raylib.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x86\native\raylib.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CopyComplete
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.genruntimeconfig.cache
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\ref\GameCore.dll
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\fireball.png
+C:\Users\vladyslav_romanov\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\player_old.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\refint\GameCore.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.pdb
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.exe
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\maps\map01.tmx
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\maps\tilesets\tileset_basic.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\fireball.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\player.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\player_old.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.deps.json
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.runtimeconfig.json
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\GameCore.pdb
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\Merlin2d.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\Raylib-cs.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\TiledSharp.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x64\native\libraylib.so
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\linux-x86\native\libraylib.so
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\osx-x64\native\libraylib.dylib
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x64\native\raylib.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\runtimes\win-x86\native\raylib.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.AssemblyReference.cache
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfoInputs.cache
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.AssemblyInfo.cs
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CoreCompileInputs.cache
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.csproj.CopyComplete
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\GameCore.genruntimeconfig.cache
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\obj\Debug\net6.0\ref\GameCore.dll
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\maps\space.tmx
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\maps\space.tsx
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\enemy.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\explosion.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\explosion2.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\slowdown.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\big_boom.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\big_explosion.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\rsz_big_explosion.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\boom.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\rsz_heal.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\kill_healing_kit_finally.png

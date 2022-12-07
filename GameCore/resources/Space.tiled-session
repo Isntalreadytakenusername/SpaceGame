@@ -1,0 +1,37 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "maps/map01.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "maps"
+    ],
+    "fileStates": {
+        "maps/map01.tmx": {
+            "scale": 1.0081875,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 415.59729712975013,
+                "y": 297.0677577335565
+            }
+        },
+        "maps/map01.tmx#tileset_basic": {
+            "scaleInDock": 1
+        }
+    },
+    "last.externalTilesetPath": "C:/Users/Vladyslav/OneDrive - Technicka univerzita v Kosiciach/TUKE II Year/C#/GameCore/GameCore/resources/maps",
+    "last.imagePath": "C:/Users/Vladyslav/OneDrive - Technicka univerzita v Kosiciach/TUKE II Year/C#/GameCore/GameCore/resources/maps",
+    "map.height": 30,
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "maps/map01.tmx"
+    ],
+    "project": "Space.tiled-project",
+    "recentFiles": [
+        "maps/map01.tmx"
+    ],
+    "tileset.lastUsedFilter": "All Files (*)",
+    "tileset.lastUsedFormat": "tsx"
+}
