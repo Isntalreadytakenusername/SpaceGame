@@ -200,6 +200,7 @@ namespace GameCore.Actors
 
             // well this is a bit of a mess
             // the engine seems not to allow to see an explosion first and than send the status of failed.
+            // try to implement timer properly later if time available
             Explode();
             DieingSpectacularlyIfLowHealth();
 

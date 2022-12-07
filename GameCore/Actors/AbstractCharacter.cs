@@ -32,10 +32,6 @@ namespace GameCore.Actors
             this.speed = speed;
         }
 
-        public int GetCountdownToDisappear()
-        {
-            return this.countdownToDisappear;
-        }
 
         public void ChangeHealth(int delta) 
         {
