@@ -13,7 +13,7 @@ namespace GameCore.Items
     {
         public FreezingUnit(int x, int y, string name) : base(x, y, name)
         {
-            SetAnimation(new Animation("resources/sprites/big_boom_unit.png", 35, 26));
+            SetAnimation(new Animation("resources/sprites/freezing_unit.png", 35, 38));
             this.GetAnimation().Start();
         }
 

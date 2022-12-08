@@ -36,6 +36,8 @@ namespace GameCore.Actors
 
         private int bigBoomsCount = 1;
         private int freezingUnitsCount = 1;
+        
+        private int destroyedCargoShipsCount = 0;
 
         private IMessage healthMessage;
         public PlayerWizard(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy) : base(name, speed, health, speedStrategy, energy )
@@ -57,7 +59,7 @@ namespace GameCore.Actors
             this.healthMessage = new Message("Health: " + this.health, 0, 0, 10, Color.White, MessageDuration.Indefinite);
             this.healthMessage.SetAnchorPoint(this);
 
-            this.EnemyCargoSpawnCoolDown = rand.Next(300, 600);
+            this.EnemyCargoSpawnCoolDown = rand.Next(0, 10);
             
         }
 
@@ -76,7 +78,7 @@ namespace GameCore.Actors
 
         public void SpawnCargoShip()
         {
-            this.GetWorld().AddActor(new EnemyCargoShip(700, rand.Next(0, 800), "CargoShip", 1, 500, new NormalSpeedStrategy(), 1000, this));
+            this.GetWorld().AddActor(new EnemyCargoShip(610, rand.Next(100, 700), "CargoShip", 0.2, 200, new ModifiedSpeedStrategy(), 1000, this));
         }
 
         public void MissedRebel() 
@@ -87,6 +89,16 @@ namespace GameCore.Actors
         public void MissedCargoShip()
         {
             this.isCargoShipMissed = true;
+        }
+
+        public void DestroyedCargoShip()
+        {
+            this.destroyedCargoShipsCount++;
+        }
+        
+        public int GetDestroyedCargoShipsCount() 
+        {
+            return this.destroyedCargoShipsCount;
         }
 
         public bool IsCargoShipMissed() 
@@ -109,7 +121,7 @@ namespace GameCore.Actors
 
             if (player.howManyRebelsAreLetThrough >= 10)
                 return MapStatus.Failed;
-            else if (player.howManyRebelsWereSpawned >= 30)
+            else if (player.GetDestroyedCargoShipsCount() >= 3)
                 return MapStatus.Finished;
             else if(player.RemovedFromWorld() || player.GetHealth() <= 0 || player.IsCargoShipMissed())
             {

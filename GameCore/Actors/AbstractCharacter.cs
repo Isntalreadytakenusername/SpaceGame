@@ -49,7 +49,7 @@ namespace GameCore.Actors
         {
             return health;
         }
-        public void Die() 
+        public virtual void Die() 
         {
             this.countdownToDisappear = 20;
             //this.RemoveFromWorld();

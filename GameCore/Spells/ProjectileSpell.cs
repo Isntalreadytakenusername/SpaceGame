@@ -133,6 +133,10 @@ namespace GameCore.Spells
                             }
                             ((AbstractCharacter)actor).Die();
                         }
+                        else if (isBigBoom) // big bomb always produce explosion
+                        {
+                            this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY()));
+                        }
                     }
                     catch 
                     {
