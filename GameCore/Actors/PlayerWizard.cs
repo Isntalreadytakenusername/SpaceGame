@@ -39,6 +39,9 @@ namespace GameCore.Actors
         
         private int destroyedCargoShipsCount = 0;
 
+        private int genericCounter = 0;
+        private bool isAddedMessage = false;
+
         private IMessage healthMessage;
         private IMessage additionalInfo;
         public PlayerWizard(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy) : base(name, speed, health, speedStrategy, energy )
@@ -62,7 +65,6 @@ namespace GameCore.Actors
             this.additionalInfo = new Message("CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10", 0, 0, 10, Color.White, MessageDuration.Indefinite);
 
             this.EnemyCargoSpawnCoolDown = rand.Next(0, 10);
-            
         }
 
         public override int GetLastDirection() 
@@ -253,8 +255,12 @@ namespace GameCore.Actors
         public override void Update()
         {
             // !!!! THIS IS COMMENTED BECAUSE THE ENGINE HAS A PROBLEM WITH MESSAGES SO THAT THEY SLOW DOWN THE GAME DRAMATICALLY !!! //
-            //this.GetWorld().AddMessage(this.healthMessage);
-            //this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
+            if (!isAddedMessage)
+            {
+                isAddedMessage = true;
+                this.GetWorld().AddMessage(this.healthMessage);
+            }
+                this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
             //this.additionalInfo.SetText("Destroyed cargo ships: " + this.destroyedCargoShipsCount + "/3" + " Rebels let through: " + this.howManyRebelsAreLetThrough + "/10");
 
             this.DieCountdownCheck();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using GameCore.Commands;
@@ -42,8 +43,14 @@ namespace GameCore.Spells
                 if (info.SpellType == SpellType.ProjectileSpell)
                 {
                     this.builder = new ProjectileSpellBuilder(info, spellPrice[spellName], this.SpellCaster);
-                     this.builder.SetAnimation(new Merlin2d.Game.Animation(spellInfo[spellName].AnimationPath, spellInfo[spellName].AnimationWidth, spellInfo[spellName].AnimationHeight));
-                    
+                    try
+                    {
+                        this.builder.SetAnimation(new Merlin2d.Game.Animation(spellInfo[spellName].AnimationPath, spellInfo[spellName].AnimationWidth, spellInfo[spellName].AnimationHeight)); // this is failing rarely with no reason
+                    }
+                    catch
+                    {
+                        this.builder.SetAnimation(new Merlin2d.Game.Animation("resources/sprites/fireball.png", 35, 35));
+                    }
 
                     foreach (string effect in spellInfo[spellName].EffectNames) 
                     {
