@@ -40,6 +40,7 @@ namespace GameCore.Actors
         private int destroyedCargoShipsCount = 0;
 
         private IMessage healthMessage;
+        private IMessage additionalInfo;
         public PlayerWizard(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy) : base(name, speed, health, speedStrategy, energy )
         {
             
@@ -56,8 +57,9 @@ namespace GameCore.Actors
             this.moveLeft = new Move(this, speed, -1, 0);
             this.lastMove = moveRight;
 
-            this.healthMessage = new Message("Health: " + this.health, 0, 0, 10, Color.White, MessageDuration.Indefinite);
-            this.healthMessage.SetAnchorPoint(this);
+            this.healthMessage = new Message("Health: " + this.health, 0, 0, 30, Color.White, MessageDuration.Indefinite);
+            //this.healthMessage.SetAnchorPoint(this);
+            this.additionalInfo = new Message("CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10", 0, 0, 10, Color.White, MessageDuration.Indefinite);
 
             this.EnemyCargoSpawnCoolDown = rand.Next(0, 10);
             
@@ -263,7 +265,8 @@ namespace GameCore.Actors
         public override void Update()
         {
             this.GetWorld().AddMessage(this.healthMessage);
-            this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount);
+            this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
+            this.additionalInfo.SetText("Destroyed cargo ships: " + this.destroyedCargoShipsCount + "/3" + " Rebels let through: " + this.howManyRebelsAreLetThrough + "/10");
 
             this.DieCountdownCheck();
             this.spellCoolDownTime++;
@@ -327,17 +330,19 @@ namespace GameCore.Actors
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.S))
             {
-                if (this.freezingUnitsCount > 0)
+                if (this.freezingUnitsCount > 0 && this.spellCoolDownTime >= 100)
                 {
                     this.Cast("SlowDown");
+                    this.spellCoolDownTime = 0;
                     this.freezingUnitsCount--;
                 }
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.X))
             {
-                if (this.bigBoomsCount > 0)
+                if (this.bigBoomsCount > 0 && this.spellCoolDownTime >= 100)  //spell cool down needs to be checked not to spend more units than casted
                 {
                     this.Cast("BigBoom");
+                    this.spellCoolDownTime = 0;
                     this.bigBoomsCount--;
                 }
             }

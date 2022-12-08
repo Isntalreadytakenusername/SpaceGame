@@ -124,3 +124,4 @@ C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\
 C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\kill_healing_kit_finally.png
 C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\big_boom_unit.png
 C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\enemy_cargo_ship.png
+C:\Users\Vladyslav\OneDrive - Technicka univerzita v Kosiciach\TUKE II Year\C#\GameCore\GameCore\bin\Debug\net6.0\resources\sprites\freezing_unit.png

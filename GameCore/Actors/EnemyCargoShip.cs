@@ -35,7 +35,7 @@ namespace GameCore.Actors
             this.PassedThroughBlockade();
             this.moveLeft.Execute();
             this.spellCoolDownTime++;
-            this.Cast("Damage");
+            this.Cast("BigBoom");
 
             if (old_speed != speed)
             {

@@ -55,6 +55,9 @@
     <None Update="resources\sprites\fireball.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="resources\sprites\freezing_unit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="resources\sprites\kill_healing_kit_finally.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
