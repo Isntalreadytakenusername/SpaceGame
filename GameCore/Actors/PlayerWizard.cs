@@ -82,7 +82,7 @@ namespace GameCore.Actors
 
         public void SpawnCargoShip()
         {
-            this.GetWorld().AddActor(new EnemyCargoShip(610, rand.Next(100, 600), "CargoShip", 0.2, 200, new ModifiedSpeedStrategy(), 1000, this));
+            this.GetWorld().AddActor(new EnemyCargoShip(610, rand.Next(100, 600), "CargoShip", 0.2, 1000, new ModifiedSpeedStrategy(), 500, this));
         }
 
         public void MissedRebel() 
@@ -140,18 +140,6 @@ namespace GameCore.Actors
         }
 
 
-        public void Explode()
-        {
-            if (this.GetHealth() <= 0)
-            {
-                Animation animation = new Animation("resources/sprites/explosion2.png", 181, 181);
-                this.SetAnimation(animation);
-                this.GetAnimation().Start();
-                this.countdownToDisappear = 120;
-                //this.DieCountdownCheck();
-                //this.GetWorld().RemoveActor(this);
-            }
-        }
         private void GenerateHealingKits() 
         {
             if (this.healingKitCoolDown == 0)
@@ -229,7 +217,7 @@ namespace GameCore.Actors
         {
             this.spellToBeUsedSoonSomehowInUnknownManner = new SpellDirector(this).Build(spellName);
 
-            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 10)
+            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 5)
             {
                 this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
                 // hopefully it makes sense to add it to the world at this point
@@ -260,7 +248,7 @@ namespace GameCore.Actors
                 isAddedMessage = true;
                 this.GetWorld().AddMessage(this.healthMessage);
             }
-                this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
+            this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
             //this.additionalInfo.SetText("Destroyed cargo ships: " + this.destroyedCargoShipsCount + "/3" + " Rebels let through: " + this.howManyRebelsAreLetThrough + "/10");
 
             this.DieCountdownCheck();
