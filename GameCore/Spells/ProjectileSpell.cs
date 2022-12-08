@@ -21,7 +21,7 @@ namespace GameCore.Spells
         private ISpeedStrategy speedStrategy;
         private SpellType SpellType = SpellType.ProjectileSpell;
 
-        private int speed = 10;
+        private int speed = 30;
         private int lastDirection;
 
         private Move moveRight;

@@ -18,7 +18,7 @@ namespace GameCore.Actors
         private ICommand moveDown;
         private ICommand moveRight;
         private ICommand moveLeft;
-        private PlayerWizard protagonist;
+        protected PlayerWizard protagonist;
         private double old_speed;
         
         public Enemy(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy, PlayerWizard protagonist) : base(name, speed, health, speedStrategy, energy)
@@ -63,11 +63,10 @@ namespace GameCore.Actors
             }
         }
 
-        private void PassedThroughBlockade() 
+        protected virtual void PassedThroughBlockade() 
         {
             if (this.GetX() < 10) 
             {
-                // find player actor and call MissedRebel() on it
                 this.protagonist.MissedRebel();
                 this.GetWorld().RemoveActor(this);
             }

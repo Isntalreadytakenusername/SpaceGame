@@ -1,5 +1,6 @@
 ﻿using GameCore.Commands;
 using GameCore.Items;
+using GameCore.Spells;
 using Merlin2d.Game;
 using Merlin2d.Game.Actions;
 using Merlin2d.Game.Actors;
@@ -23,14 +24,18 @@ namespace GameCore.Actors
         private ICommand moveLeft;
         private Random rand = new Random();
         private int EnemySpawnCoolDown = 0;
+        private int EnemyCargoSpawnCoolDown = 0;
 
         private int howManyRebelsAreLetThrough = 0;
+        private bool isCargoShipMissed = false;
         private int howManyRebelsWereSpawned = 0;
         private int healingKitCoolDown = 100;
+        private int bigBoomCoolDown = 120;
         private int collisionCoolDown = 0;
+        private int freezingUnitCoolDown = 300;
 
-        private bool didExplode = false;
-        private int explosionCoolDown = 30;
+        private int bigBoomsCount = 1;
+        private int freezingUnitsCount = 1;
 
         private IMessage healthMessage;
         public PlayerWizard(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy) : base(name, speed, health, speedStrategy, energy )
@@ -51,6 +56,8 @@ namespace GameCore.Actors
 
             this.healthMessage = new Message("Health: " + this.health, 0, 0, 10, Color.White, MessageDuration.Indefinite);
             this.healthMessage.SetAnchorPoint(this);
+
+            this.EnemyCargoSpawnCoolDown = rand.Next(300, 600);
             
         }
 
@@ -67,9 +74,24 @@ namespace GameCore.Actors
             this.GetWorld().AddActor(new Enemy(700, rand.Next(0, 800), "Enemy2", 1, 5, new NormalSpeedStrategy(), 1000, this));
         }
 
+        public void SpawnCargoShip()
+        {
+            this.GetWorld().AddActor(new EnemyCargoShip(700, rand.Next(0, 800), "CargoShip", 1, 500, new NormalSpeedStrategy(), 1000, this));
+        }
+
         public void MissedRebel() 
         {
             this.howManyRebelsAreLetThrough++;
+        }
+
+        public void MissedCargoShip()
+        {
+            this.isCargoShipMissed = true;
+        }
+
+        public bool IsCargoShipMissed() 
+        {
+            return this.isCargoShipMissed;
         }
 
         public static MapStatus CheckForDefeatOrVictory(IWorld world)
@@ -89,7 +111,7 @@ namespace GameCore.Actors
                 return MapStatus.Failed;
             else if (player.howManyRebelsWereSpawned >= 30)
                 return MapStatus.Finished;
-            else if(player.RemovedFromWorld() || player.GetHealth() <= 0)
+            else if(player.RemovedFromWorld() || player.GetHealth() <= 0 || player.IsCargoShipMissed())
             {
                 Animation animation = new Animation("resources/sprites/explosion2.png", 181, 181);
                 player.SetAnimation(animation);
@@ -101,10 +123,6 @@ namespace GameCore.Actors
                 return MapStatus.Unfinished;
         }
 
-        private void DisplayHealth() 
-        {
-            
-        }
 
         public void Explode()
         {
@@ -127,6 +145,28 @@ namespace GameCore.Actors
             }
             else
                 this.healingKitCoolDown--;
+        }
+
+        private void GenerateBigBooms() 
+        {
+            if (this.bigBoomCoolDown == 0)
+            {
+                this.GetWorld().AddActor(new BigBoomUnit(rand.Next(0, 700), rand.Next(0, 860), "BigBoom"));
+                this.bigBoomCoolDown = rand.Next(200, 500);
+            }
+            else
+                this.bigBoomCoolDown--;
+        }
+
+        private void GenerateFreezingUnits()
+        {
+            if (this.freezingUnitCoolDown == 0)
+            {
+                this.GetWorld().AddActor(new FreezingUnit(rand.Next(0, 700), rand.Next(0, 860), "FreezingUnit"));
+                this.freezingUnitCoolDown = rand.Next(400, 800);
+            }
+            else
+                this.freezingUnitCoolDown--;
         }
 
         public void LookForUsables() 
@@ -181,20 +221,49 @@ namespace GameCore.Actors
             }
         }
 
+        public override void Cast(string spellName)
+        {
+            this.spellToBeUsedSoonSomehowInUnknownManner = new SpellDirector(this).Build(spellName);
+
+            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 30)
+            {
+                this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
+                // hopefully it makes sense to add it to the world at this point
+                // I can cast it to IActor as they are related
+                // after this I assume Update() will be called repeatedly on the spell object
+                this.GetWorld().AddActor((Merlin2d.Game.Actors.IActor)this.spellToBeUsedSoonSomehowInUnknownManner);
+                this.spellCoolDownTime = 0;
+            }
+        }
+
+        public void PickBigBoom() 
+        {
+            this.bigBoomsCount++;
+        }
+
+        public void PickFreezingUnit() 
+        {
+            this.freezingUnitsCount++;
+        }
+
 
 
         public override void Update()
         {
             this.GetWorld().AddMessage(this.healthMessage);
-            this.healthMessage.SetText("Health: " + this.health);
+            this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount);
 
             this.DieCountdownCheck();
             this.spellCoolDownTime++;
             this.EnemySpawnCoolDown--;
             this.collisionCoolDown--;  // we may decrement every time without checking the value
+            this.EnemyCargoSpawnCoolDown--;
             Console.WriteLine(this.health);
 
             GenerateHealingKits();
+            GenerateBigBooms();
+            GenerateFreezingUnits();
+
             CheckForCollisions();
 
 
@@ -207,7 +276,12 @@ namespace GameCore.Actors
             if (this.EnemySpawnCoolDown <= 0)
             {
                 this.SpawnEnemies();
-                this.EnemySpawnCoolDown = rand.Next(60, 200);
+                this.EnemySpawnCoolDown = rand.Next(0, 100);
+            }
+            if (this.EnemyCargoSpawnCoolDown <= 0)
+            {
+                this.SpawnCargoShip();
+                this.EnemyCargoSpawnCoolDown = rand.Next(500, 900);
             }
             if (Input.GetInstance().IsKeyDown(Input.Key.UP))
             {
@@ -241,11 +315,19 @@ namespace GameCore.Actors
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.S))
             {
-                this.Cast("SlowDown");
+                if (this.freezingUnitsCount > 0)
+                {
+                    this.Cast("SlowDown");
+                    this.freezingUnitsCount--;
+                }
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.X))
             {
-                this.Cast("BigBoom");
+                if (this.bigBoomsCount > 0)
+                {
+                    this.Cast("BigBoom");
+                    this.bigBoomsCount--;
+                }
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.E))
             {
