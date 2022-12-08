@@ -100,7 +100,7 @@ namespace GameCore.Spells
             this.existingActors = GetWorld().GetActors();
             foreach (IActor actor in existingActors)
             {
-                if (((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Player")) || ((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Enemy2" || this.SpellCaster.GetName() == "CargoShip") && (actor.GetName() != "Enemy2" && actor.GetName() != "CargoShip")) )) && (actor is not IUsable))
+                if (((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Player")) || ((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Enemy2" || this.SpellCaster.GetName() == "CargoShip") && (actor.GetName() != "Enemy2" && actor.GetName() != "CargoShip")) )) && (actor is not IUsable) && (actor is not Explosion))
                 {
                     try
                     {
@@ -120,22 +120,23 @@ namespace GameCore.Spells
                             if (isBigBoom)
                                 // big explosion is made as a separate actor because replacing animation of the target with explosion
                                 // resulted in explosion being out of place dramatically
-                                this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY()));
+                                this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY(), "big"));
                             else
                             {
                                 if (actor.GetName() == "Player")
-                                    this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY()));
+                                    this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY(), "big"));
                                 else
                                 {
+                                    //this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY(), "small"));
                                     actor.SetAnimation(new Animation("resources/sprites/explosion2.png", 181, 181));
                                     actor.GetAnimation().Start();
                                 }
                             }
                             ((AbstractCharacter)actor).Die();
                         }
-                        else if (isBigBoom) // big bomb always produce explosion
+                        else if (isBigBoom) // always produce explosion if a ship is hit
                         {
-                            this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY()));
+                            this.GetWorld().AddActor(new Explosion(actor.GetX(), actor.GetY(), "big"));
                         }
                     }
                     catch 

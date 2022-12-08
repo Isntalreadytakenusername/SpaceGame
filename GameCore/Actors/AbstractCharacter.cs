@@ -37,13 +37,13 @@ namespace GameCore.Actors
         {
            
             this.health += delta;
-            if (health <= 0)
+/*            if (health <= 0)
             {
-                /*Animation animation = new Animation("resources/sprites/explosion2.png", 181, 181);
+                *//*Animation animation = new Animation("resources/sprites/explosion2.png", 181, 181);
                 this.SetAnimation(animation);
-                this.GetAnimation().Start();*/
+                this.GetAnimation().Start();*//*
                 Die();
-            }
+            }*/
         }
         public int GetHealth()
         {
@@ -51,7 +51,8 @@ namespace GameCore.Actors
         }
         public virtual void Die() 
         {
-            this.countdownToDisappear = 20;
+            if(countdownToDisappear == 0)
+                this.countdownToDisappear = 15;
             //this.RemoveFromWorld();
         }
 

@@ -80,7 +80,7 @@ namespace GameCore.Actors
 
         public void SpawnCargoShip()
         {
-            this.GetWorld().AddActor(new EnemyCargoShip(610, rand.Next(100, 700), "CargoShip", 0.2, 200, new ModifiedSpeedStrategy(), 1000, this));
+            this.GetWorld().AddActor(new EnemyCargoShip(610, rand.Next(100, 600), "CargoShip", 0.2, 200, new ModifiedSpeedStrategy(), 1000, this));
         }
 
         public void MissedRebel() 
@@ -155,7 +155,7 @@ namespace GameCore.Actors
             if (this.healingKitCoolDown == 0)
             {
                 this.GetWorld().AddActor(new HealingKit(rand.Next(0, 700), rand.Next(0, 860), "HealingKit"));
-                this.healingKitCoolDown = rand.Next(100, 500);
+                this.healingKitCoolDown = rand.Next(500, 1000);
             }
             else
                 this.healingKitCoolDown--;
@@ -166,7 +166,7 @@ namespace GameCore.Actors
             if (this.bigBoomCoolDown == 0)
             {
                 this.GetWorld().AddActor(new BigBoomUnit(rand.Next(0, 700), rand.Next(0, 860), "BigBoom"));
-                this.bigBoomCoolDown = rand.Next(200, 500);
+                this.bigBoomCoolDown = rand.Next(350, 800);
             }
             else
                 this.bigBoomCoolDown--;
@@ -177,7 +177,7 @@ namespace GameCore.Actors
             if (this.freezingUnitCoolDown == 0)
             {
                 this.GetWorld().AddActor(new FreezingUnit(rand.Next(0, 700), rand.Next(0, 860), "FreezingUnit"));
-                this.freezingUnitCoolDown = rand.Next(400, 800);
+                this.freezingUnitCoolDown = rand.Next(1000, 2000);
             }
             else
                 this.freezingUnitCoolDown--;
@@ -213,7 +213,7 @@ namespace GameCore.Actors
                     double distance = Math.Sqrt(Math.Pow(this.GetX() - actor.GetX(), 2) + Math.Pow(this.GetY() - actor.GetY(), 2));
                     if (distance < 40 && this.collisionCoolDown <= 0)
                     {
-                        this.GetWorld().AddActor(new Explosion(GetX(), GetY()));
+                        this.GetWorld().AddActor(new Explosion(GetX(), GetY(), "big"));
                         ((Enemy)actor).Die();
                         this.ChangeHealth(-100);
                         this.collisionCoolDown = 45;
@@ -222,24 +222,12 @@ namespace GameCore.Actors
             }
         }
          
-        private void DieingSpectacularlyIfLowHealth() 
-        {
-            if (this.GetHealth() <= 0)
-            {
-                /*Animation animation = new Animation("resources/sprites/explosion2.png", 181, 181);
-                this.SetAnimation(animation);
-                this.GetAnimation().Start();*/
-                this.GetWorld().AddActor(new Explosion(GetX(), GetY()));
-                this.Die();
-                //this.GetWorld().RemoveActor(this);
-            }
-        }
 
         public override void Cast(string spellName)
         {
             this.spellToBeUsedSoonSomehowInUnknownManner = new SpellDirector(this).Build(spellName);
 
-            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 30)
+            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 10)
             {
                 this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
                 // hopefully it makes sense to add it to the world at this point
@@ -264,9 +252,10 @@ namespace GameCore.Actors
 
         public override void Update()
         {
-            this.GetWorld().AddMessage(this.healthMessage);
-            this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
-            this.additionalInfo.SetText("Destroyed cargo ships: " + this.destroyedCargoShipsCount + "/3" + " Rebels let through: " + this.howManyRebelsAreLetThrough + "/10");
+            // !!!! THIS IS COMMENTED BECAUSE THE ENGINE HAS A PROBLEM WITH MESSAGES SO THAT THEY SLOW DOWN THE GAME DRAMATICALLY !!! //
+            //this.GetWorld().AddMessage(this.healthMessage);
+            //this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
+            //this.additionalInfo.SetText("Destroyed cargo ships: " + this.destroyedCargoShipsCount + "/3" + " Rebels let through: " + this.howManyRebelsAreLetThrough + "/10");
 
             this.DieCountdownCheck();
             this.spellCoolDownTime++;
@@ -285,18 +274,18 @@ namespace GameCore.Actors
             // well this is a bit of a mess
             // the engine seems not to allow to see an explosion first and than send the status of failed.
             // try to implement timer properly later if time available
-            Explode();
-            DieingSpectacularlyIfLowHealth();
+            /*Explode();
+            DieingSpectacularlyIfLowHealth();*/
 
             if (this.EnemySpawnCoolDown <= 0)
             {
                 this.SpawnEnemies();
-                this.EnemySpawnCoolDown = rand.Next(0, 100);
+                this.EnemySpawnCoolDown = rand.Next(0, 60);
             }
             if (this.EnemyCargoSpawnCoolDown <= 0)
             {
                 this.SpawnCargoShip();
-                this.EnemyCargoSpawnCoolDown = rand.Next(500, 900);
+                this.EnemyCargoSpawnCoolDown = rand.Next(1500, 2500);
             }
             if (Input.GetInstance().IsKeyDown(Input.Key.UP))
             {
@@ -330,7 +319,7 @@ namespace GameCore.Actors
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.S))
             {
-                if (this.freezingUnitsCount > 0 && this.spellCoolDownTime >= 100)
+                if (this.freezingUnitsCount > 0 && this.spellCoolDownTime >= 50)
                 {
                     this.Cast("SlowDown");
                     this.spellCoolDownTime = 0;
@@ -339,7 +328,7 @@ namespace GameCore.Actors
             }
             else if (Input.GetInstance().IsKeyDown(Input.Key.X))
             {
-                if (this.bigBoomsCount > 0 && this.spellCoolDownTime >= 100)  //spell cool down needs to be checked not to spend more units than casted
+                if (this.bigBoomsCount > 0 && this.spellCoolDownTime >= 50)  //spell cool down needs to be checked not to spend more units than casted
                 {
                     this.Cast("BigBoom");
                     this.spellCoolDownTime = 0;

@@ -42,7 +42,7 @@ namespace GameCore.Spells
                 if (info.SpellType == SpellType.ProjectileSpell)
                 {
                     this.builder = new ProjectileSpellBuilder(info, spellPrice[spellName], this.SpellCaster);
-                    this.builder.SetAnimation(new Merlin2d.Game.Animation(spellInfo[spellName].AnimationPath, spellInfo[spellName].AnimationWidth, spellInfo[spellName].AnimationHeight));
+                     this.builder.SetAnimation(new Merlin2d.Game.Animation(spellInfo[spellName].AnimationPath, spellInfo[spellName].AnimationWidth, spellInfo[spellName].AnimationHeight));
                     
 
                     foreach (string effect in spellInfo[spellName].EffectNames) 
