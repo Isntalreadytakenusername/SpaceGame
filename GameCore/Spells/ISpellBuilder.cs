@@ -14,8 +14,7 @@ namespace GameCore.Spells
         ISpellBuilder AddEffect(string effectName);
         ISpellBuilder SetAnimation(Animation animation); //unused for self-cast spells
         ISpellBuilder SetSpellCost(int cost);
-        //void CreateSpell(IWizard wizard); // CreateSpell doesn't make sense if director calls it at the end of the process
-        // it is like as if we set an animation first and then create spell.
-        ISpell GetSpell(); // GetSpell makes more sense.
+        
+        ISpell GetSpell();
     }
 }

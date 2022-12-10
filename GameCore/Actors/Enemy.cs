@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameCore.Actors
 {
-    public class Enemy : AbstractEnemy
+    public class Enemy : AbstractEnemy, ICharacter
     {      
         public Enemy(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy, PlayerWizard protagonist) : base(x, y, name, speed, health, speedStrategy, energy, protagonist)
         {

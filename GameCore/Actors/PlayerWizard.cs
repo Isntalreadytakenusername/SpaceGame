@@ -34,7 +34,7 @@ namespace GameCore.Actors
         private int collisionCoolDown = 0;
         private int freezingUnitCoolDown = 300;
 
-        private int bigBoomsCount = 1;
+        private int bigBoomsCount = 10;
         private int freezingUnitsCount = 1;
         
         private int destroyedCargoShipsCount = 0;
@@ -65,7 +65,7 @@ namespace GameCore.Actors
             //this.healthMessage.SetAnchorPoint(this);
             this.introInfo = new Message("You are taking part in a blockade of a planet. Your task is not to let the convoy of \n the enemy ships through. You need to destroy 3 cargo ships of the enemy." +
                 " \n And we cannot let any one of them to pass through to resupply the forces on the planet. \n" +
-                "To shoot press SPACE, to shoot with a powerful range bomb press X, \n to freeze the enemy press S. \n" +
+                "To shoot press SPACE, to shoot with a big bomb press X, \n to freeze the enemy press S. \n" +
                 "You can pick items with E. To close the message press SPACE \n", 25, 300, 20, Color.White, MessageDuration.Indefinite);
 
             this.EnemyCargoSpawnCoolDown = rand.Next(0, 10);
@@ -275,11 +275,7 @@ namespace GameCore.Actors
                 CheckForCollisions();
 
 
-                // well this is a bit of a mess
-                // the engine seems not to allow to see an explosion first and than send the status of failed.
-                // try to implement timer properly later if time available
-                /*Explode();
-                DieingSpectacularlyIfLowHealth();*/
+
 
                 if (this.EnemySpawnCoolDown <= 0)
                 {

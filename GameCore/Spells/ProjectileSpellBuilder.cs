@@ -29,7 +29,6 @@ namespace GameCore.Spells
 
         public ISpellBuilder AddEffect(string effectName)
         {
-            // well, there is only one clumsy way to do this, or not
             if (string.Compare(effectName, "Damage") == 0) 
             {
                 this.spellThatIsBeingBuilt.AddEffect(new Damage(this.spellPrice, 10));

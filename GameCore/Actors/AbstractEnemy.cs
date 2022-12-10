@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameCore.Actors
 {
-    public abstract class AbstractEnemy: AbstractWizard
+    public abstract class AbstractEnemy: AbstractWizard, ICharacter
     {
         protected Animation animation;
         protected ICommand lastMove;
@@ -42,9 +42,6 @@ namespace GameCore.Actors
         public override int GetLastDirection()
         {
             return 1;
-            /*if (lastMove == moveLeft)
-                return 1;
-            return 0;*/
         }
 
         public bool IsDead()
@@ -59,9 +56,6 @@ namespace GameCore.Actors
             if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= random.Next(20,60))
             {
                 this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
-                // hopefully it makes sense to add it to the world at this point
-                // I can cast it to IActor as they are related
-                // after this I assume Update() will be called repeatedly on the spell object
                 this.GetWorld().AddActor((Merlin2d.Game.Actors.IActor)this.spellToBeUsedSoonSomehowInUnknownManner);
                 this.spellCoolDownTime = 0;
             }

@@ -43,7 +43,7 @@ namespace GameCore.Commands
         public bool BeyondMapBoundaries()
         {
             {
-                if (actor.GetX() + dx < 0 || actor.GetX() + dx > 950 - actor.GetWidth()) // good old hardcoding, as world object doesnt have getting width and height apparently
+                if (actor.GetX() + dx < 0 || actor.GetX() + dx > 950 - actor.GetWidth()) // world object doesnt have getting width and height apparently; better replace with a global constant
                 {
                     return true;
                 }

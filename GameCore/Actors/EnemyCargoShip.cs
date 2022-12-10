@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameCore.Actors
 {
-    internal class EnemyCargoShip: AbstractEnemy
+    internal class EnemyCargoShip: AbstractEnemy, ICharacter
     {
         private IMessage healthMessage;
         public EnemyCargoShip(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy, PlayerWizard protagonist) : base(x, y, name, speed, health, speedStrategy, energy, protagonist)

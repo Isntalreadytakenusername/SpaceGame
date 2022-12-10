@@ -27,7 +27,6 @@ namespace GameCore.Spells
 
         public ISpellBuilder AddEffect(string effectName)
         {
-            // well, there is only one clumsy way to do this, or not
             if (string.Compare(effectName, "SpeedUp") == 0)
             {
                 this.spellThatIsBeingBuilt.AddEffect(new SpeedUp(this.spellPrice));

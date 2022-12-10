@@ -8,31 +8,29 @@ using System.Threading.Tasks;
 
 namespace GameCore.Commands
 {
-    internal class BigBoom: ICommandForSpell
+    internal class BigBoom : ICommandForSpell
     {
         public void Execute(ICharacter target)
         {
-            // first get coordinates of the target, then get all characters in the area, call ChangeHealth on them
-            int x = target.GetX();
-            int y = target.GetY();
             int radius = 300;
             List<IActor> actors = target.GetWorld().GetActors();
-            
+
             foreach (IActor actor in actors)
             {
-                if (actor is ICharacter)
+                if (actor is ICharacter && ((ICharacter)actor != target))
                 {
                     ICharacter character = (ICharacter)actor;
-                    int x1 = character.GetX();
-                    int y1 = character.GetY();
-                    if (Math.Sqrt(Math.Pow(x1 - x, 2) + Math.Pow(y1 - y, 2)) <= radius)
+                    
+                    double distance = Math.Sqrt(Math.Pow(character.GetX() - target.GetX(), 2) + Math.Pow(character.GetY() - target.GetY(), 2));
+                    
+                    if (distance <= radius)
                     {
                         character.ChangeHealth(-100);
                     }
                 }
             }
+            target.ChangeHealth(-100);
 
-            //target.Health -= 100;
         }
 
         public int GetPrice()

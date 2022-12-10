@@ -29,8 +29,6 @@ namespace GameCore.Items
 
         public virtual void Use(IActor actor)
         {
-            // apply respective effect first as follows
-            //((PlayerWizard)actor).ChangeHealth(100);
             this.isUsed = true;
         }
     }

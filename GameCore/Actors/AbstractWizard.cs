@@ -26,9 +26,6 @@ namespace GameCore.Actors
             if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 100)
             {
                 this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
-                // hopefully it makes sense to add it to the world at this point
-                // I can cast it to IActor as they are related
-                // after this I assume Update() will be called repeatedly on the spell object
                 this.GetWorld().AddActor((Merlin2d.Game.Actors.IActor)this.spellToBeUsedSoonSomehowInUnknownManner);
                 this.spellCoolDownTime = 0;
             }
