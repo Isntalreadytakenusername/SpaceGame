@@ -20,6 +20,9 @@ namespace GameCore.Actors
         protected ICommand moveLeft;
         protected PlayerWizard protagonist;
         protected double old_speed;
+        protected Random random = new Random();
+
+        protected bool is_dead = false; // this I create specifically to tackle the problem that projectiles continue to hit explosion.
 
         public AbstractEnemy(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy, PlayerWizard protagonist) : base(name, speed, health, speedStrategy, energy)
         {
@@ -44,11 +47,16 @@ namespace GameCore.Actors
             return 0;*/
         }
 
+        public bool IsDead()
+        {
+            return this.is_dead;
+        }
+
         public override void Cast(string spellName)
         {
             this.spellToBeUsedSoonSomehowInUnknownManner = new SpellDirector(this).Build(spellName);
 
-            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 200)
+            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= random.Next(20,60))
             {
                 this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
                 // hopefully it makes sense to add it to the world at this point

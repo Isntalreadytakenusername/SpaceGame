@@ -43,7 +43,8 @@ namespace GameCore.Actors
         private bool isAddedMessage = false;
 
         private IMessage healthMessage;
-        private IMessage additionalInfo;
+        private IMessage introInfo;
+        private bool isIntroRemoved = false;
         public PlayerWizard(int x, int y, string name, double speed, int health, ISpeedStrategy speedStrategy, int energy) : base(name, speed, health, speedStrategy, energy )
         {
             
@@ -62,7 +63,10 @@ namespace GameCore.Actors
 
             this.healthMessage = new Message("Health: " + this.health, 0, 0, 30, Color.White, MessageDuration.Indefinite);
             //this.healthMessage.SetAnchorPoint(this);
-            this.additionalInfo = new Message("CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10", 0, 0, 10, Color.White, MessageDuration.Indefinite);
+            this.introInfo = new Message("You are taking part in a blockade of a planet. Your task is not to let the convoy of \n the enemy ships through. You need to destroy 3 cargo ships of the enemy." +
+                " \n And we cannot let any one of them to pass through to resupply the forces on the planet. \n" +
+                "To shoot press SPACE, to shoot with a powerful range bomb press X, \n to freeze the enemy press S. \n" +
+                "You can pick items with E. To close the message press SPACE \n", 25, 300, 20, Color.White, MessageDuration.Indefinite);
 
             this.EnemyCargoSpawnCoolDown = rand.Next(0, 10);
         }
@@ -77,7 +81,7 @@ namespace GameCore.Actors
         public void SpawnEnemies()
         {
             this.howManyRebelsWereSpawned++;
-            this.GetWorld().AddActor(new Enemy(700, rand.Next(0, 800), "Enemy2", 1, 5, new NormalSpeedStrategy(), 1000, this));
+            this.GetWorld().AddActor(new Enemy(700, rand.Next(0, 800), "Enemy2", 1, 15, new NormalSpeedStrategy(), 1000, this));
         }
 
         public void SpawnCargoShip()
@@ -217,13 +221,10 @@ namespace GameCore.Actors
         {
             this.spellToBeUsedSoonSomehowInUnknownManner = new SpellDirector(this).Build(spellName);
 
-            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 5)
+            if (this.spellToBeUsedSoonSomehowInUnknownManner.GetCost() <= this.energy && this.spellCoolDownTime >= 4)
             {
                 this.energy -= this.spellToBeUsedSoonSomehowInUnknownManner.GetCost();
-                // hopefully it makes sense to add it to the world at this point
-                // I can cast it to IActor as they are related
-                // after this I assume Update() will be called repeatedly on the spell object
-                this.GetWorld().AddActor((Merlin2d.Game.Actors.IActor)this.spellToBeUsedSoonSomehowInUnknownManner);
+                this.GetWorld().AddActor((IActor)this.spellToBeUsedSoonSomehowInUnknownManner);
                 this.spellCoolDownTime = 0;
             }
         }
@@ -242,101 +243,112 @@ namespace GameCore.Actors
 
         public override void Update()
         {
-            // !!!! THIS IS COMMENTED BECAUSE THE ENGINE HAS A PROBLEM WITH MESSAGES SO THAT THEY SLOW DOWN THE GAME DRAMATICALLY !!! //
             if (!isAddedMessage)
             {
                 isAddedMessage = true;
                 this.GetWorld().AddMessage(this.healthMessage);
+                this.GetWorld().AddMessage(this.introInfo);
             }
-            this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
-            //this.additionalInfo.SetText("Destroyed cargo ships: " + this.destroyedCargoShipsCount + "/3" + " Rebels let through: " + this.howManyRebelsAreLetThrough + "/10");
-
-            this.DieCountdownCheck();
-            this.spellCoolDownTime++;
-            this.EnemySpawnCoolDown--;
-            this.collisionCoolDown--;  // we may decrement every time without checking the value
-            this.EnemyCargoSpawnCoolDown--;
-            Console.WriteLine(this.health);
-
-            GenerateHealingKits();
-            GenerateBigBooms();
-            GenerateFreezingUnits();
-
-            CheckForCollisions();
-
-
-            // well this is a bit of a mess
-            // the engine seems not to allow to see an explosion first and than send the status of failed.
-            // try to implement timer properly later if time available
-            /*Explode();
-            DieingSpectacularlyIfLowHealth();*/
-
-            if (this.EnemySpawnCoolDown <= 0)
+            if (!isIntroRemoved)
             {
-                this.SpawnEnemies();
-                this.EnemySpawnCoolDown = rand.Next(0, 60);
-            }
-            if (this.EnemyCargoSpawnCoolDown <= 0)
-            {
-                this.SpawnCargoShip();
-                this.EnemyCargoSpawnCoolDown = rand.Next(1500, 2500);
-            }
-            if (Input.GetInstance().IsKeyDown(Input.Key.UP))
-            {
-                animation.Start();
-                this.moveUp.Execute();
-            }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.DOWN))
-            {
-                animation.Start();
-                this.moveDown.Execute();
-            }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.RIGHT))
-            {
-                if (this.lastMove == moveLeft)
-                    animation.FlipAnimation();
-                animation.Start();
-                this.moveRight.Execute();
-                this.lastMove = moveRight;
-            }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.LEFT))
-            {
-                if (this.lastMove == moveRight)
-                    animation.FlipAnimation();
-                animation.Start();
-                this.moveLeft.Execute();
-                this.lastMove = moveLeft;
-            }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.SPACE))
-            {
-                this.Cast("Damage");
-            }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.S))
-            {
-                if (this.freezingUnitsCount > 0 && this.spellCoolDownTime >= 50)
+                if (Input.GetInstance().IsKeyDown(Input.Key.SPACE))
                 {
-                    this.Cast("SlowDown");
-                    this.spellCoolDownTime = 0;
-                    this.freezingUnitsCount--;
+                    this.GetWorld().RemoveMessage(introInfo);
+                    isIntroRemoved = true;
                 }
             }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.X))
+            else 
             {
-                if (this.bigBoomsCount > 0 && this.spellCoolDownTime >= 50)  //spell cool down needs to be checked not to spend more units than casted
+                this.healthMessage.SetText("Health: " + this.health + " B: " + this.bigBoomsCount + " F: " + this.freezingUnitsCount + " " + "CARGO: " + this.destroyedCargoShipsCount + "/3" + " Missed: " + this.howManyRebelsAreLetThrough + "/10");
+
+                this.DieCountdownCheck();
+                this.spellCoolDownTime++;
+                this.EnemySpawnCoolDown--;
+                this.collisionCoolDown--;  // we may decrement every time without checking the value
+                this.EnemyCargoSpawnCoolDown--;
+                Console.WriteLine(this.health);
+
+                GenerateHealingKits();
+                GenerateBigBooms();
+                GenerateFreezingUnits();
+
+                CheckForCollisions();
+
+
+                // well this is a bit of a mess
+                // the engine seems not to allow to see an explosion first and than send the status of failed.
+                // try to implement timer properly later if time available
+                /*Explode();
+                DieingSpectacularlyIfLowHealth();*/
+
+                if (this.EnemySpawnCoolDown <= 0)
                 {
-                    this.Cast("BigBoom");
-                    this.spellCoolDownTime = 0;
-                    this.bigBoomsCount--;
+                    this.SpawnEnemies();
+                    this.EnemySpawnCoolDown = rand.Next(0, 85);
                 }
-            }
-            else if (Input.GetInstance().IsKeyDown(Input.Key.E))
-            {
-                LookForUsables();
-            }
-            else
-            {
-                animation.Stop();
+                if (this.EnemyCargoSpawnCoolDown <= 0)
+                {
+                    this.SpawnCargoShip();
+                    this.EnemyCargoSpawnCoolDown = rand.Next(1500, 2500);
+                }
+                if (Input.GetInstance().IsKeyDown(Input.Key.UP))
+                {
+                    animation.Start();
+                    this.moveUp.Execute();
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.DOWN))
+                {
+                    animation.Start();
+                    this.moveDown.Execute();
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.RIGHT))
+                {
+                    if (this.lastMove == moveLeft)
+                        animation.FlipAnimation();
+                    animation.Start();
+                    this.moveRight.Execute();
+                    this.lastMove = moveRight;
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.LEFT))
+                {
+                    if (this.lastMove == moveRight)
+                        animation.FlipAnimation();
+                    animation.Start();
+                    this.moveLeft.Execute();
+                    this.lastMove = moveLeft;
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.SPACE))
+                {
+                    this.Cast("Damage");
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.S))
+                {
+                    if (this.freezingUnitsCount > 0 && this.spellCoolDownTime >= 50)
+                    {
+                        this.Cast("SlowDown");
+                        this.spellCoolDownTime = 0;
+                        this.freezingUnitsCount--;
+                    }
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.X))
+                {
+                    if (this.bigBoomsCount > 0 && this.spellCoolDownTime >= 50)  //spell cool down needs to be checked not to spend more units than casted
+                    {
+                        this.Cast("BigBoom");
+                        this.spellCoolDownTime = 0;
+                        this.bigBoomsCount--;
+                    }
+                }
+                else if (Input.GetInstance().IsKeyDown(Input.Key.E))
+                {
+                    LookForUsables();
+                }
+                else
+                {
+                    animation.Stop();
+                }
             }
         }
+            
     }
 }

@@ -21,7 +21,7 @@ namespace GameCore.Items
 
         public override void Use(IActor actor)
         {
-            ((PlayerWizard)actor).ChangeHealth(100);
+            ((PlayerWizard)actor).ChangeHealth(500);
             this.isUsed = true;
         }
     }

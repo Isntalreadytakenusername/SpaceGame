@@ -13,8 +13,8 @@ namespace GameCore.Factories
             if (actorType == "Player")
             {
                 actor = new PlayerWizard(x, y, actorName, 2, 100, new NormalSpeedStrategy(), 10000);
-                actor.SetName(actorName);
-                actor.SetPhysics(true);
+                actor.SetName("Player");
+                //actor.SetPhysics(true);
                 actor.SetPosition(x, y);
             }
             else

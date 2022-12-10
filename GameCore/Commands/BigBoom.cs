@@ -15,7 +15,7 @@ namespace GameCore.Commands
             // first get coordinates of the target, then get all characters in the area, call ChangeHealth on them
             int x = target.GetX();
             int y = target.GetY();
-            int radius = 230;
+            int radius = 300;
             List<IActor> actors = target.GetWorld().GetActors();
             
             foreach (IActor actor in actors)

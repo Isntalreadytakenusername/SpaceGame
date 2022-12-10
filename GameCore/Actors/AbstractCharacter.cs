@@ -37,13 +37,6 @@ namespace GameCore.Actors
         {
            
             this.health += delta;
-/*            if (health <= 0)
-            {
-                *//*Animation animation = new Animation("resources/sprites/explosion2.png", 181, 181);
-                this.SetAnimation(animation);
-                this.GetAnimation().Start();*//*
-                Die();
-            }*/
         }
         public int GetHealth()
         {

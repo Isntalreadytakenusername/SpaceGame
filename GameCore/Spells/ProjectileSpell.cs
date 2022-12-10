@@ -100,7 +100,7 @@ namespace GameCore.Spells
             this.existingActors = GetWorld().GetActors();
             foreach (IActor actor in existingActors)
             {
-                if (((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Player")) || ((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Enemy2" || this.SpellCaster.GetName() == "CargoShip") && (actor.GetName() != "Enemy2" && actor.GetName() != "CargoShip")) )) && (actor is not IUsable) && (actor is not Explosion))
+                if (((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Player") && (actor is AbstractEnemy && !((AbstractEnemy)actor).IsDead())) || ((this.IntersectsWithActor(actor) && (actor != this) && (actor != this.SpellCaster) && (this.SpellCaster.GetName() == "Enemy2" || this.SpellCaster.GetName() == "CargoShip") && (actor.GetName() != "Enemy2" && actor.GetName() != "CargoShip")) )) && (actor is not IUsable) && (actor is not Explosion))
                 {
                     try
                     {

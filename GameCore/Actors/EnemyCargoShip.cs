@@ -23,8 +23,18 @@ namespace GameCore.Actors
 
         public override void Die() 
         {
+            this.is_dead = true;
             this.countdownToDisappear = 20;
             this.protagonist.DestroyedCargoShip();
+        }
+
+        protected override void PassedThroughBlockade()
+        {
+            if (this.GetX() < 10)
+            {
+                this.protagonist.MissedCargoShip();
+                this.GetWorld().RemoveActor(this);
+            }
         }
 
         public override void Update()
